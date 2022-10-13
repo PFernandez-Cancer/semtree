@@ -92,7 +92,8 @@ evaluateDataLikelihood <-
                                      stationary = "all",
                                      fit = FALSE)
       model <- omxSetParameters(
-        model_ctsem$mxobj,
+        model = model_ctsem$mxobj,
+        values = coef(model$mxobj),
         labels = names(omxGetParameters(model_ctsem$mxobj)),
         free = FALSE)
       data <- full_mxdata <- mxData(observed = model_ctsem$mxobj$data$observed,
